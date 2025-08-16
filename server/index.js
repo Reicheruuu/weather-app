@@ -12,7 +12,8 @@ const app = express();
 app.use(cors({
   origin: [
     'https://reicheruuu.github.io',
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://weather-app-backend-197g.onrender.com'
   ],
   methods: ['GET', 'POST'],
   credentials: true
