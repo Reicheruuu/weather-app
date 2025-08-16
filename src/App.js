@@ -4,7 +4,10 @@ import History from "./components/History";
 import Forecast from "./components/Forecast";
 import "./App.css";
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL;
+if (!API_URL) {
+  console.error('Backend API URL not configured');
+}
 
 function App() {
   const [weather, setWeather] = useState(null);
