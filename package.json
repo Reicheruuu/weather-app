@@ -8,6 +8,7 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.11.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "mongoose": "^8.17.1",
     "react": "^19.1.1",
@@ -41,7 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://yourusername.github.io/weather-app",
+  "homepage": "https://reicheruuu.github.io/weather-app",
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
