@@ -19,6 +19,13 @@ A full-stack weather application that allows users to search for real-time weath
 🔗 [Live App](https://reicheruuu.github.io/weather-app)  
 🔗 [Backend API](https://weather-backend-i27r.onrender.com)
 
+## 🔑 Create Account
+Create account in render (https://render.com/)
+
+Create account in weathermap (https://openweathermap.org/weathermap)
+
+Create account in MongoDB Atalas (https://www.mongodb.com/products/platform/atlas-database) or Community for local host
+
 ## 📦 Installation
 1. Clone the repository  
    ```bash
@@ -35,12 +42,7 @@ MONGO_URI=your_mongo_atlas_connection_string
 
 WEATHER_API_KEY=your_openweather_api_key
 
-## Create Account
-Create account in render (https://render.com/)
 
-Create account in weathermap (https://openweathermap.org/weathermap)
-
-Create account in MongoDB Atalas (https://www.mongodb.com/products/platform/atlas-database) or Community for local host
 
 
 
