@@ -39,7 +39,7 @@ Create account in MongoDB Atalas (https://www.mongodb.com/products/platform/atla
 Create a .env file in your backend project and add your keys:
 ```bash
 MONGO_URI=your_mongo_atlas_connection_string
-
+PORT= 10000
 WEATHER_API_KEY=your_openweather_api_key
 
 
