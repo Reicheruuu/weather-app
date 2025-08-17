@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const uri = "mongodb+srv://pauljericho1:hc7141A9lkIoa1D4@cluster0.oibokdw.mongodb.net/weatherapp?retryWrites=true&w=majority";
+    const uri = process.env.MONGO_URI;
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

@@ -4,6 +4,7 @@ import History from "./components/History";
 import Forecast from "./components/Forecast";
 import "./App.css";
 
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
     const fetchSearchHistory = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/searches/all`);
+        const response = await fetch(`${API_URL}/api/searches/all`);
         const data = await response.json();
         setHistory(data);
       } catch (error) {
@@ -31,8 +32,8 @@ function App() {
       setError(null);
       setIsLoading(true);
       const [weatherResponse, forecastResponse] = await Promise.all([
-        fetch(`http://localhost:5000/api/weather/${cityName}`),
-        fetch(`http://localhost:5000/api/forecast/${cityName}`)
+        fetch(`${API_URL}/api/weather/${cityName}`),
+        fetch(`${API_URL}/api/forecast/${cityName}`)
       ]);
       
       if (!weatherResponse.ok || !forecastResponse.ok) {
@@ -46,7 +47,7 @@ function App() {
       setForecast(forecastData);
 
       // Save search to database
-      await fetch('http://localhost:5000/api/searches', {
+      await fetch(`${API_URL}/api/searches`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +60,7 @@ function App() {
       });
 
       // Fetch updated history
-      const historyResponse = await fetch(`http://localhost:5000/api/searches/all`);
+      const historyResponse = await fetch(`${API_URL}/api/searches/all`);
       const historyData = await historyResponse.json();
       setHistory(historyData);
 
