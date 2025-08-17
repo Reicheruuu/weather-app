@@ -1,51 +1,30 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const axios = require('axios');
 const connectDB = require('./config/db');
 const WeatherSearch = require('./models/WeatherSearch');
+require('dotenv').config();
 
 const app = express();
-
-// CORS configuration
-app.use(cors({
-  origin: [
-    'https://reicheruuu.github.io',
-    'http://localhost:3000'
-  ],
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
-
 const port = process.env.PORT || 5000;
 
-// Middleware
+app.use(cors());
 app.use(express.json());
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../build')));
-}
+const API_KEY = "c917d96a646809655222262c2eac8403"; // Move this to .env file in production
 
-const API_KEY = process.env.WEATHER_API_KEY;
-if (!API_KEY) {
-  console.error('Weather API key not configured');
-  process.exit(1);
-}
+// Connect to database
+connectDB();
 
-// Weather API endpoints
 app.get('/api/weather/:city', async (req, res) => {
   try {
     const { city } = req.params;
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     );
     res.json(response.data);
   } catch (error) {
-    const statusCode = error.response?.status || 500;
-    const message = statusCode === 404 ? 'City not found' : 'Error fetching weather data';
-    res.status(statusCode).json({ message });
+    res.status(404).json({ message: 'City not found' });
   }
 });
 
@@ -87,22 +66,6 @@ app.post('/api/searches', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ 
-    message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error'
-  });
-});
-
-// Handle React routing in production
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
-  });
-}
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
