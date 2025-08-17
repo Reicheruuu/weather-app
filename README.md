@@ -22,4 +22,24 @@ A full-stack weather application that allows users to search for real-time weath
 ## 📦 Installation
 1. Clone the repository  
    ```bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone https://github.com/reicheruuu/weather-app.git
+
+2. cd weather-app
+
+3. npm install
+
+4. npm start
+
+5. create 
+
+## 🔑 Environment Variables
+
+MONGO_URI=your_mongo_atlas_connection_string
+WEATHER_API_KEY=your_openweather_api_key
+
+Create account in render (https://render.com/)
+Create account in weathermap (https://openweathermap.org/weathermap)
+Create account in MongoDB Atalas (https://www.mongodb.com/products/platform/atlas-database) or Community for local host
+
+
+
