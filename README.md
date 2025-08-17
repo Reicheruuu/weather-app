@@ -34,7 +34,9 @@ MONGO_URI=your_mongo_atlas_connection_string
 WEATHER_API_KEY=your_openweather_api_key
 
 Create account in render (https://render.com/)
+
 Create account in weathermap (https://openweathermap.org/weathermap)
+
 Create account in MongoDB Atalas (https://www.mongodb.com/products/platform/atlas-database) or Community for local host
 
 
