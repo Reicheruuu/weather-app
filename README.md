@@ -29,7 +29,8 @@ A full-stack weather application that allows users to search for real-time weath
 
 
 ## 🔑 Environment Variables
-
+Create a .env file in your backend project and add your keys:
+```bash
 MONGO_URI=your_mongo_atlas_connection_string
 
 WEATHER_API_KEY=your_openweather_api_key
