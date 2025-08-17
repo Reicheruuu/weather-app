@@ -24,7 +24,7 @@ A full-stack weather application that allows users to search for real-time weath
    ```bash
    git clone https://github.com/reicheruuu/weather-app.git
 
-2. cd weather-app
+   cd weather-app
 
 3. npm install
 
