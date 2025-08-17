@@ -23,14 +23,10 @@ A full-stack weather application that allows users to search for real-time weath
 1. Clone the repository  
    ```bash
    git clone https://github.com/reicheruuu/weather-app.git
-
    cd weather-app
+   npm install
+   npm start
 
-3. npm install
-
-4. npm start
-
-5. create 
 
 ## 🔑 Environment Variables
 
